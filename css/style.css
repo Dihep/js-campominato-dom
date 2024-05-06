@@ -1,0 +1,36 @@
+/* Stili universali */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark-mode */
+header, main, footer {
+    background-color: black;
+    color: white;
+}
+
+
+/* Stili griglia */
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.cella {
+    width: 9.5vw;
+    height: 9.5vw;
+    border: 2px solid gray;
+    background-color: white;
+    color: black;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: calc((9vw - 2rem) / 2);
+}
+
+/* Stili celle cliccate */
+.clicked {
+    background-color: red;
+}
