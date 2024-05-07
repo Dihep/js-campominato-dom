@@ -7,7 +7,7 @@ var punteggio = 0;
 let bombe = [];
 startBtn.addEventListener("click", creaGriglia)
 
-//Funzione principale
+//Funzioni creazione griglia
 function creaGriglia() {    
     for (let i = 0; i < 100; i++) {
         //Creazione nuova cella
@@ -24,8 +24,6 @@ function creaGriglia() {
     punteggio = 0;
     startBtn.classList.add("hidden");
 };
-
-//Funzioni di supporto
 function impostaCella(cella, i) {
     cella.classList.add("cella");
     console.log(cella, cella.classList);
@@ -33,10 +31,13 @@ function impostaCella(cella, i) {
     return(cella);
 };
 
+//Gestione click
 function clickCella() {
     numCella = this.innerText;
     if (bombe.includes(numCella-1)) {
         this.classList.add("bombed");
+        disattivaGriglia(container);
+        alert("Sei esploso con un punteggio di: " + punteggio)
     } else {
         console.log("Click su cella ", numCella);
         this.classList.add("clicked");
@@ -45,6 +46,8 @@ function clickCella() {
     };
 };
 
+
+//Generazione bombe
 function generaBombe() {
     let lista = [Math.floor(Math.random()*16)];
     for (let i = 1; i < 16; i++) {
@@ -63,4 +66,11 @@ function generaBombe() {
         }
     };
     return(lista);
+};
+
+//Disattivazione griglia
+function disattivaGriglia(container) {
+    for (let i = 0; i < container.children.length; i++) {
+        container.children[i].removeEventListener("click", clickCella)
+    };
 };
