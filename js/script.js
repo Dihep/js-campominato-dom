@@ -50,7 +50,7 @@ function clickCella() {
         console.log("Punteggio = " + punteggio)
     };
     //Vittoria
-    if (punteggio == 5) {
+    if (punteggio == 84) {
         disattivaGriglia(container);
         setTimeout(function() {
             alert("Hai vinto! "+punteggio+" punti!")
