@@ -31,18 +31,30 @@ function impostaCella(cella, i) {
     return(cella);
 };
 
-//Gestione click
+//Gestione click, punteggio, perdita e vittoria
 function clickCella() {
     numCella = this.innerText;
+    //BOOM
     if (bombe.includes(numCella-1)) {
         this.classList.add("bombed");
         disattivaGriglia(container);
-        alert("Sei esploso con un punteggio di: " + punteggio)
-    } else {
+        setTimeout(function() {
+            alert("Sei esploso con un punteggio di: " + punteggio)
+        }, 50);
+    }
+    //Un punto
+    else {
         console.log("Click su cella ", numCella);
         this.classList.add("clicked");
         punteggio++;
         console.log("Punteggio = " + punteggio)
+    };
+    //Vittoria
+    if (punteggio == 5) {
+        disattivaGriglia(container);
+        setTimeout(function() {
+            alert("Hai vinto! "+punteggio+" punti!")
+        }, 50);
     };
 };
 
