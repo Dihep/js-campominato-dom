@@ -31,16 +31,22 @@ function impostaCella(cella, i) {
     cella.innerText = i + 1;
     return(cella);
 };
+
 function clickCella() {
     numCella = this.innerText;
-    console.log("Click su cella ", numCella);
-    this.classList.add("clicked");
+    if (bombe.includes(numCella-1)) {
+        this.classList.add("bombed");
+    } else {
+        console.log("Click su cella ", numCella);
+        this.classList.add("clicked");
+    };
 };
+
 function generaBombe() {
     let lista = [Math.floor(Math.random()*16)];
     for (let i = 1; i < 16; i++) {
         //Creo numero casuale
-        lista[i] = Math.floor(Math.random()*16)    
+        lista[i] = Math.floor(Math.random()*100)    
         //Controllo che non sia presente tra quelli già generati
         doubleCheck = false;
         for (let p = 0; p < i; p++) {
