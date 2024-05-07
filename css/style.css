@@ -34,3 +34,8 @@ header, main, footer {
 .clicked {
     background-color: red;
 }
+
+/*Stili bottone*/
+.hidden {
+    display: none;
+}
