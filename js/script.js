@@ -1,6 +1,7 @@
 // Creazione variabili
 const container = document.getElementById("container");
 const startBtn = document.getElementById("start");
+var punteggio = 0;
 
 //Creazione griglia al click del bottone
 let bombe = [];
@@ -20,7 +21,7 @@ function creaGriglia() {
         console.log(`cella ${i + 1} creata.`);
     }
     bombe = generaBombe();
-    debugger;
+    punteggio = 0;
     startBtn.classList.add("hidden");
 };
 
@@ -39,6 +40,8 @@ function clickCella() {
     } else {
         console.log("Click su cella ", numCella);
         this.classList.add("clicked");
+        punteggio++;
+        console.log("Punteggio = " + punteggio)
     };
 };
 
